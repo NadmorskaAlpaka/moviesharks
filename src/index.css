@@ -1,1 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+/* =========================
+              MENU
+            1.Generic
+            2.Navbar
+   =========================*/
+/* =========================   
+            1.Generic
+   =========================*/
+*{
+    margin: 0;
+    padding: 0;
+  
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+:root {
+    --primary-color: #000000;
+    --secondary-color: #FFFFFF;
+    --third-color: #DA0C2C;
+}
+
+img{
+  width: 100%;
+}
+
+ul{
+  list-style-type: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+/* =========================
+            2.Navbar
+   =========================*/
+nav{
+  background-color: var(--primary-color);
+  height: 80px;
+}
+
+.nav__wrapper{
+  margin: 0 auto;
+  max-width: 1250px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__img--wrapper{
+  display: flex;
+}
+
+.nav__img{
+  height: 60px;
+}
+
+.nav__list{
+  display: flex;
+}
+
+.nav__list--element:not(:last-child){
+  margin-right: 30px;
+}
+
+.nav__link{
+  color: var(--secondary-color);
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: none;
+}
+
+.link--hover-effect{
+  position: relative;
+  background: var(--secondary-color);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.link--hover-effect::before{
+  content: attr(data-title);
+  background: var(--third-color);
+  color: transparent;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  transition: all 300ms ease;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.link--hover-effect:hover::before{
+  height: 100%;
+}
+
 
