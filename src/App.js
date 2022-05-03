@@ -1,15 +1,17 @@
 import Navbar from './components/Navbar'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Landing from './components/Landing';
-import TopRatedMovies from './components/TopRatedMovies';
+import Home from './pages/Home';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Navbar />
-        <Landing />
-        <TopRatedMovies />
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        <Footer />
       </div>
     </Router>
   );

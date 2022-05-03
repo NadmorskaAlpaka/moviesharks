@@ -8,7 +8,7 @@ const Landing = () => {
 
     useEffect(() => {
         async function getTrendingMovies() {
-            const response = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`)
+            const response = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=2`)
             setTrendingMovies(response.data.results);
             const randomNumber = Math.floor(Math.random() * 20);
             setRandomMovie(response.data.results[randomNumber])
@@ -18,6 +18,7 @@ const Landing = () => {
 
     return (
         <section className='landing'>
+            <h1 className='title'>Find your perfect movie</h1>
             <figure className='landing__img--wrapper'>
                 {
                     !trendingMovies ? (
