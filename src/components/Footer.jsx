@@ -14,18 +14,18 @@ const Footer = () => {
                                 </Link>
                             </li>
                             <li className='footer__list--element click'>
-                                <Link to="/" className='footer__link'>
+                                <Link to="/discover" className='footer__link'>
                                     Discover
                                 </Link>
                             </li>
                             <li className='footer__list--element click'>
-                                <Link to="/" className='footer__link'>
+                                <Link to="/contact" className='footer__link'>
                                     Contact
                                 </Link>
                             </li>
                         </ul>
                         <span className='copyright'>
-                            MovieSharks &copy; 2022
+                            MovieSharks copyright &copy; 2022
                         </span>
                     </div>
                 </div>

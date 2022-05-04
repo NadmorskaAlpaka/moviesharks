@@ -7,7 +7,7 @@ const Browsemoremovies = () => {
             <div className='container'>
                 <div className='row'>
                     <div className='browse-more-movies--wrapper'>
-                        <Link to="/" className='btn click'>
+                        <Link to="/discover" className='btn click'>
                             Discover more movies
                         </Link>
                     </div>

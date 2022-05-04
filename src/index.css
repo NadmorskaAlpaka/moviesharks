@@ -8,6 +8,8 @@
             4.TopRatedMovies
             5.Footer
             6.Browsemoremovies
+            7.Contact
+            8.Discover
    =========================*/
 /* =========================   
             1.Generic
@@ -28,6 +30,12 @@
 
 html{
   scroll-behavior: smooth;
+}
+
+.App{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 img{
@@ -81,10 +89,16 @@ a{
   text-transform: uppercase;
   border: 1px solid var(--third-color);
   transition: all 300ms ease;
+  background-color: transparent;
 }
 
 .btn:hover{
   background-color: var(--third-color);
+}
+
+.movies--wrapper{
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* =========================
@@ -294,15 +308,11 @@ nav{
   margin-bottom: 40px;
 }
 
-.top-rated-movies--wrapper{
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .movie-card{
   width: calc(100% / 3);
   display: flex;
   position: relative;
+  overflow: hidden;
 }
 
 .movie-card::after{
@@ -349,8 +359,16 @@ nav{
   border-radius: 50%;
 }
 
+.movie__img{
+  transition: all 300ms ease;
+}
+
 .movie-card:hover .movie__rating{
   color: rgb(255, 224, 50);
+}
+
+.movie-card:hover .movie__img{
+  transform: scale(1.1);
 }
 
 .movie-card--skeleton{
@@ -393,6 +411,8 @@ nav{
 footer{
   padding: 40px 0;
   background-color: var(--third-color);
+  position: sticky;
+  top: 100%;
 }
 
 .footer--wrapper{
@@ -434,4 +454,85 @@ footer{
 .browse-more-movies--wrapper{
   display: flex;
   justify-content: center;
+}
+
+/* =========================   
+            7.Contact
+   =========================*/
+#contact{
+  padding: 60px 0 40px 0;
+  border-top: 1px solid var(--third-color);
+  display: flex;
+  flex-grow: 1;
+  background-color: var(--primary-color);
+}
+
+.contact--wrapper{
+  display: flex;
+  justify-content: space-between;
+}
+
+.form--wrapper{
+  width: 55%;
+}
+
+.contact-description--wrapper{
+  width: 40%;
+}
+
+.contact-form{
+  display: flex;
+  flex-direction: column;
+}
+
+.contact__box{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+.contact__label{
+  color: var(--secondary-color);
+  letter-spacing: 1px;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.contact__input{
+  padding: 4px 8px;
+  font-size: 18px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: none;
+  color: var(--secondary-color);
+  border-bottom: 1px solid var(--third-color);
+  transition: all 600ms ease;
+}
+
+.contact__input:focus{
+  outline: none;
+  border: 1px solid var(--third-color);
+  color: var(--secondary-color);
+}
+
+.contact__para{
+  color: var(--secondary-color);
+  font-size: 24px;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-top: -30px;
+}
+
+/* =========================   
+            8.Discover
+   =========================*/
+#popular-movies,
+#popular-now-playing,
+#upcoming-movies{
+  background-color: var(--primary-color);
+  padding-bottom: 40px;
+}
+
+#popular-movies{
+  padding-top: 40px;
 }

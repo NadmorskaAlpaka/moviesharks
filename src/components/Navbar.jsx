@@ -24,7 +24,7 @@ const Navbar = () => {
                         <Link 
                             data-title="DISCOVER" 
                             className="nav__link link--hover-effect" 
-                            to="/"
+                            to="/discover"
                         >
                             Discover
                         </Link>
@@ -33,7 +33,7 @@ const Navbar = () => {
                         <Link 
                             data-title="CONTACT" 
                             className="nav__link link--hover-effect" 
-                            to="/"
+                            to="/contact"
                         >
                             Contact
                         </Link>

@@ -20,7 +20,7 @@ const TopRatedMovies = () => {
             <div className="container">
                 <div className="row">
                     <h2 className="section__title">Top Rated Movies</h2>
-                    <div className="top-rated-movies--wrapper">
+                    <div className="movies--wrapper">
                         {
                             !topRatedMovies ? (
                                 <>
