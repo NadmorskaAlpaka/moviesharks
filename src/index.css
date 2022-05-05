@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
-/* =========================
+/* ================================
               MENU
             1.Generic
             2.Navbar
@@ -10,7 +10,10 @@
             6.Browsemoremovies
             7.Contact
             8.Discover
-   =========================*/
+            9.SkeletonMovieCard
+            10.SearchResults
+            11.MovieInfo
+   ==================================*/
 /* =========================   
             1.Generic
    =========================*/
@@ -251,12 +254,6 @@ nav{
   transition: all 300ms ease;
 }
 
-.black{
-  background-color: rgba(0, 0, 0, 0.534);
-  width: 100%;
-  height: 100%;
-}
-
 .search--icon:hover{
   transform: scale(1.1) translate(-50%,-50%);
 }
@@ -289,6 +286,12 @@ nav{
 
 .go-down--icon:hover{
   color: var(--third-color);
+}
+
+.skeleton{
+  background-color: rgba(0, 0, 0, 0.534);
+  width: 100%;
+  height: 100%;
 }
 
 /* =========================
@@ -371,40 +374,6 @@ nav{
   transform: scale(1.1);
 }
 
-.movie-card--skeleton{
-  height: 500px;
-  width: calc(100% / 3);
-  display: flex;
-  position: relative;
-  background-color: gray;
-}
-
-.movie__img--skeleton{
-  width: 100%;
-  height: 100%;
-  background-color: rgb(71, 71, 71);
-}
-
-.movie__title--skeleton{
-  position: absolute;
-  width: 90%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  bottom: 10%;
-  z-index: 2;
-  height: 20px;
-  background-color: rgb(153, 153, 153);
-}
-
-.movie__rating--skeleton{
-  background-color: rgb(153, 153, 153);
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  padding: 60px;
-  border-radius: 50%;
-}
 /* =========================   
             5.Footer
    =========================*/
@@ -460,9 +429,10 @@ footer{
             7.Contact
    =========================*/
 #contact{
-  padding: 60px 0 40px 0;
+  padding: 40px 0 40px 0;
   border-top: 1px solid var(--third-color);
   display: flex;
+  align-items: center;
   flex-grow: 1;
   background-color: var(--primary-color);
 }
@@ -478,6 +448,9 @@ footer{
 
 .contact-description--wrapper{
   width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .contact-form{
@@ -494,17 +467,18 @@ footer{
 .contact__label{
   color: var(--secondary-color);
   letter-spacing: 1px;
-  font-size: 18px;
-  margin-bottom: 4px;
+  font-size: 20px;
+  margin-bottom: 8px;
 }
 
 .contact__input{
-  padding: 4px 8px;
+  padding: 6px 8px;
   font-size: 18px;
   border-radius: 4px;
   background-color: transparent;
   border: none;
   color: var(--secondary-color);
+  background-color: rgba(51, 51, 51, 0.26);
   border-bottom: 1px solid var(--third-color);
   transition: all 600ms ease;
 }
@@ -521,6 +495,7 @@ footer{
   letter-spacing: 1px;
   text-align: center;
   margin-top: -30px;
+  max-width: 400px;
 }
 
 /* =========================   
@@ -535,4 +510,81 @@ footer{
 
 #popular-movies{
   padding-top: 40px;
+}
+
+/* =========================   
+      9.SkeletonMovieCard
+   =========================*/
+   .movie-card--skeleton{
+    height: 500px;
+    width: calc(100% / 3);
+    display: flex;
+    position: relative;
+    background-color: rgba(59, 59, 59, 0.589);
+  }
+  
+  .movie__img--skeleton{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(104, 104, 104, 0.774);
+  }
+  
+  .movie__title--skeleton{
+    position: absolute;
+    width: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: 10%;
+    z-index: 2;
+    height: 20px;
+    background-color: rgba(104, 104, 104, 0.774);
+  }
+  
+  .movie__rating--skeleton{
+    background-color: rgba(104, 104, 104, 0.774);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 60px;
+    border-radius: 50%;
+  }
+/* =========================   
+        10.SearchResults
+   =========================*/
+#search-result{
+  background-color: var(--primary-color);
+  display: flex;
+  flex-grow: 1;
+}
+/* =========================   
+          11.MovieInfo
+   =========================*/
+#movie-info{
+  background-color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+}
+.movie-info--wrapper{
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.movie-info__img--wrapper{
+  width: 35%;
+}
+
+.movie-info__details{
+  width: 63%;
+}
+
+.movie-info__title,
+.movie-info__runtime,
+.movie-info__rating,
+.movie-info__release-date,
+.movie-info__overwiew{
+  color: var(--secondary-color);
 }
