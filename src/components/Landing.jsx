@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 const API_KEY = "049038a1b7b5164539618773284e61c8";
 
 const Landing = () => {
-    const [trendingMovies, setTrendingMovies] = useState();
+    let navigate = useNavigate();
     const [randomMovie, setRandomMovie] = useState([])
     const [loading, setLoading] = useState(true)
+    const [inputValue, setInputValue] = useState("");
+
+    function onSearch(){
+        if(inputValue === ""){
+            alert("The field cannot be empty");
+        } else {
+            navigate('/searchresult',{state:{name:{inputValue}}});
+        }
+    }
 
     useEffect(() => {
         async function getTrendingMovies() {
@@ -13,7 +23,6 @@ const Landing = () => {
                 const response = await axios
                 .get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=2`)
                 .then(res => {
-                    setTrendingMovies(res.data.results);
                     const randomNumber = Math.floor(Math.random() * 20);
                     setRandomMovie(res.data.results[randomNumber])
                     setLoading(false);
@@ -45,14 +54,25 @@ const Landing = () => {
                 <input
                     className="landing__input"
                     type="text"
-                    placeholder={loading ? "Find a movie" : `${randomMovie.original_title}`}
+                    value={inputValue}
+                    placeholder={loading ? "Find a movie" : `${randomMovie.title}`}
+                    onChange={(event) => setInputValue(event.target.value)}
+                    onKeyPress={(event) => {
+                        if(event.key === "Enter"){
+                            onSearch();
+                        }
+                    }}
                 />
-                <span className="material-symbols-outlined search--icon click">
+                <span 
+                    className="material-symbols-outlined search--icon click"
+                    onClick={onSearch}    
+                >
                     search
                 </span>
             </div>
             <a href="#top-rated-movies">
-                <span className="material-symbols-outlined go-down--icon">
+                <span 
+                    className="material-symbols-outlined go-down--icon">
                     expand_more
                 </span>
             </a>

@@ -13,9 +13,11 @@
             9.SkeletonMovieCard
             10.SearchResults
             11.MovieInfo
+            12.NoResults
    ==================================*/
 /* =========================   
             1.Generic
+            12.NoResults
    =========================*/
 *{
     margin: 0;
@@ -102,6 +104,14 @@ a{
 .movies--wrapper{
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+}
+
+.bold{
+  color: var(--third-color);
+  letter-spacing: 3px;
+  font-weight: 700;
+  margin-right: 4px;
 }
 
 /* =========================
@@ -311,8 +321,12 @@ nav{
   margin-bottom: 40px;
 }
 
-.movie-card{
+.movie-card__link{
   width: calc(100% / 3);
+  display: flex;
+}
+
+.movie-card{
   display: flex;
   position: relative;
   overflow: hidden;
@@ -557,6 +571,17 @@ footer{
   display: flex;
   flex-grow: 1;
 }
+
+.search-result--wrapper{
+  margin: 40px 0;
+}
+
+.search-result__head{
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
 /* =========================   
           11.MovieInfo
    =========================*/
@@ -568,23 +593,137 @@ footer{
   flex-grow: 1;
 }
 .movie-info--wrapper{
+  margin: 0 auto;
+  max-width: 1000px;
   display: flex;
   flex-grow: 1;
   justify-content: space-between;
 }
 
 .movie-info__img--wrapper{
-  width: 35%;
+  width: 41%;
+  overflow: hidden;
 }
 
 .movie-info__details{
-  width: 63%;
+  width: 57%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.movie-info__img{
+  transition: all 300ms ease;
+}
+
+.movie-info__img:hover{
+  transform: scale(1.1);
 }
 
 .movie-info__title,
 .movie-info__runtime,
 .movie-info__rating,
 .movie-info__release-date,
-.movie-info__overwiew{
+.movie-info__overview{
   color: var(--secondary-color);
+  font-size: 20px;
+}
+
+.movie-info__title{
+  font-size: 40px;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.movie-info__release-date{
+  letter-spacing: 1px;
+}
+
+.movie-info__rating--bar{
+  margin-left: 12px;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 4px;
+  overflow: hidden;
+  /* background-color: rgb(255, 224, 50); */
+}
+
+progress[value]::-webkit-progress-value{
+  background-color: rgb(255, 224, 50);
+}
+
+.movie-info__runtime,
+.movie-info__release-date,
+.movie-info__rating--wrapper,
+.movie-info__overview{
+  margin-top: 12px;
+}
+
+.movie-info__overview{
+ letter-spacing: 1px;
+ text-align: justify;
+}
+
+.skeleton-movie-info__img--wrapper{
+  width: 41%;
+  background-color: rgba(104, 104, 104, 0.774);
+}
+
+.skeleton-movie-info__details{
+  width: 57%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.white{
+  font-size: 50;
+  color: #FFFFFF;
+}
+
+.skeleton-movie-info__title,
+.skeleton-movie-info__release-date,
+.skeleton-movie-info__runtime,
+.skeleton-movie-info__rating--wrapper,
+.skeleton-movie-info__overview{
+  background-color: rgba(104, 104, 104, 0.774);
+  margin-top: 12px;
+}
+
+.skeleton-movie-info__title{
+  height: 50px;
+  width: 100%;
+  margin-top: 0px;
+}
+
+.skeleton-movie-info__release-date,
+.skeleton-movie-info__runtime,
+.skeleton-movie-info__rating--wrapper{
+  height: 25px;
+  width: 55%;
+}
+
+.skeleton-movie-info__overview{
+  height: 200px;
+  width: 75%;
+}
+
+/* =========================   
+          12.NoResults
+   =========================*/
+.no-results{
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  margin-top: 40px;
+}
+
+.no-results__title{
+  color: var(--secondary-color);
+  font-size: 34px;
+  text-align: center;
 }
