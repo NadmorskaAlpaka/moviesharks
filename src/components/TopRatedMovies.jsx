@@ -24,8 +24,6 @@ const TopRatedMovies = () => {
         getTopRatedMovies();
     }, [])
 
-    console.log(topRatedMovies)
-
     return (
         <section id="top-rated-movies">
             <div className="container">

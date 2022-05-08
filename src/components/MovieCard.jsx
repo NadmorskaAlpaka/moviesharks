@@ -17,7 +17,9 @@ const Moviecard = ({movie}) => {
                 </span>
                 <span className="movie__rating">
                     {
-                        movie.vote_average.toFixed(1)
+                        movie.vote_average === 10.0 
+                            ? movie.vote_average 
+                            : movie.vote_average.toFixed(1)
                     }
                 </span>
             </div>

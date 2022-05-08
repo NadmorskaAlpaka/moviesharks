@@ -6,12 +6,14 @@ import Contact from './pages/Contact';
 import Discover from './pages/Discover';
 import SearchResults from './components/SearchResults';
 import Movieinfo from './components/MovieInfo';
+import MobileMenu from './components/MobileMenu';
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Navbar />
+        <MobileMenu />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/discover" element={<Discover />} />

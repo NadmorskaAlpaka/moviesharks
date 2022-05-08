@@ -11,8 +11,7 @@ const SearchResults = () => {
     const passedTitle = (location.state.name.inputValue);
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);
-    console.log(passedTitle)
-
+    
     useEffect(() => {
         async function getMovies() {
             try {
@@ -31,7 +30,18 @@ const SearchResults = () => {
         getMovies();
     }, [])
 
-    console.log("Movies", movies)
+    function filterMovies(filter){
+        if(filter === "RATING"){
+            setMovies(movies.slice()
+                            .sort((a,b) => b.vote_average - a.vote_average));
+        } else if (filter === "OLDEST"){
+            setMovies(movies.slice()
+                            .sort((a,b) => new Date(a.release_date) - new Date(b.release_date)));
+        } else if (filter === "LATEST"){
+            setMovies(movies.slice()
+                            .sort((a,b) => new Date(b.release_date) - new Date(a.release_date)));
+        }
+    }
 
     return (
         <section id="search-result">
@@ -42,17 +52,23 @@ const SearchResults = () => {
                             movies.length > 0 && (
                             <div className='search-result__head'>
                                 <span className='search-result--by-user'>
-                                    Search result: <span className='by-user'>Something</span>
+                                    Search result: <span className='by-user'>{passedTitle}</span>
                                 </span>
-                                <select>
-                                    <option>
-                                        Sort by rating
+                                <select 
+                                    id="filter"
+                                    defaultValue="DEFAULT"
+                                    onChange={(event) => filterMovies(event.target.value)}>
+                                    <option value="DEFAULT" disabled>
+                                        Sort
                                     </option>
-                                    <option>
-                                        release date: oldest
+                                    <option value="RATING">
+                                        Rating
                                     </option>
-                                    <option>
-                                        release date:latest
+                                    <option value="OLDEST">
+                                        Release date: Oldest
+                                    </option>
+                                    <option value="LATEST">
+                                        Release date: Latest
                                     </option>
                                 </select>
                             </div>

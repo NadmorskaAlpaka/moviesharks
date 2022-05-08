@@ -14,10 +14,11 @@
             10.SearchResults
             11.MovieInfo
             12.NoResults
+            13.MobileMenu
+            14.MediaQueries
    ==================================*/
 /* =========================   
             1.Generic
-            12.NoResults
    =========================*/
 *{
     margin: 0;
@@ -35,6 +36,10 @@
 
 html{
   scroll-behavior: smooth;
+}
+
+body{
+  background-color: var(--primary-color);
 }
 
 .App{
@@ -112,6 +117,10 @@ a{
   letter-spacing: 3px;
   font-weight: 700;
   margin-right: 4px;
+}
+
+.not-allowed{
+  cursor: not-allowed;
 }
 
 /* =========================
@@ -582,6 +591,30 @@ footer{
   justify-content: space-between;
 }
 
+.search-result--by-user{
+  color: var(--third-color);
+  font-size: 34px;
+  letter-spacing: 2px;
+}
+
+.by-user{
+  color: var(--secondary-color);
+}
+
+#filter{
+  font-size: 18px;
+  letter-spacing: 1px;
+  background-color: #000000;
+  color: var(--secondary-color);
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+#filter:focus,
+#filter:active{
+  outline: none;
+}
+
 /* =========================   
           11.MovieInfo
    =========================*/
@@ -727,3 +760,212 @@ progress[value]::-webkit-progress-value{
   font-size: 34px;
   text-align: center;
 }
+
+/* =========================   
+         13.MobileMenu
+   =========================*/
+.mobile-menu__icon--open,
+.mobile-menu__icon--close{
+  position: absolute;
+  font-size: 54px;
+  color: var(--secondary-color);
+  right: 20px;
+  top: 10px;
+}
+
+.mobile-menu__icon--open{
+  display: none;
+}
+
+.mobile-menu--wrapper{
+  position: fixed;
+  background-color: var(--primary-color);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.openMenu .mobile-menu--wrapper{
+  display: flex;
+}
+
+.mobile-menu__list{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mobile-menu__list--element:not(:last-child){
+  margin-bottom: 40px;
+}
+
+.mobile-menu__link{
+  font-size: 40px;
+  color: var(--secondary-color);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+/* =========================   
+         14.MediaQueries
+   =========================*/
+@media (max-width: 768px) {
+  .nav__list{
+    display: none;
+  }
+
+  .mobile-menu__icon--open{
+    display: block;
+  }
+
+  .movie-card__link{
+    width: 50%;
+  }
+
+  .contact--wrapper{
+    flex-direction: column-reverse;
+  }
+
+  .form--wrapper,
+  .contact-description--wrapper{
+    width: 100%;
+  }
+
+  .contact-description--wrapper{
+    margin-bottom: 24px;
+  }
+
+  .contact__para{
+    font-size: 20px;
+    max-width: 500px;
+  }
+
+  .movie-info--wrapper{
+    flex-direction: column-reverse;
+    margin: 24px 0;
+  }
+
+  .movie-info__img--wrapper,
+  .movie-info__details{
+    width: 100%;
+  }
+
+  .movie-info__details{
+    margin-bottom: 24px;
+  }
+
+  .movie-info__title{
+    text-align: center;
+  }
+
+  .title{
+    width: 100%;
+  }
+}
+
+@media (max-width: 425px) {
+  .row{
+    width: 90%;
+  }
+
+  .title{
+    max-width: 90%;
+    font-size: 30px;
+  }
+
+  .movie-card__link{
+    width: 100%;
+  }
+
+  #top-rated-movies{
+    padding-bottom: 0;
+  }
+
+  .contact__para{
+    font-size: 18px;
+    max-width: 300px;
+  }
+
+  .movie-info__title{
+    font-size: 34px;
+  }
+
+  .movie-info__details{
+    margin-bottom: 14px;
+  }
+
+  .movie-info__release-date,
+  .movie-info__runtime,
+  .movie-info__rating,
+  .movie-info__overview{
+    font-size: 18px;
+  }
+
+  .search-result__head{
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .search-result--by-user{
+    margin-bottom: 14px;
+  }
+}
+
+@media (max-width: 375px){
+  .title{
+    font-size: 26px;
+  }
+
+  .landing__input{
+    font-size: 18px;
+  }
+
+  .section__title{
+    font-size: 30px;
+  }
+
+  .movie__title{
+    width: 95%;
+  }
+
+  .btn {
+    font-size: 20px;
+    padding: 18px 18px;
+  }
+
+  .movie-info__title{
+    font-size: 26px;
+  }
+
+  .movie-info__release-date,
+  .movie-info__runtime,
+  .movie-info__rating,
+  .movie-info__overview{
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 320px){
+
+  .title{
+    font-size: 22px;
+  }
+
+  .landing__input{
+    padding: 6px 70px 6px 12px;
+  }
+
+  .section__title{
+    font-size: 28px;
+  }
+
+  .movie__title{
+    font-size: 20px;
+  }
+}
+  

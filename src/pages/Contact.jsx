@@ -37,7 +37,7 @@ const Contact = () => {
                                         required
                                     ></textarea>
                                 </div>
-                                <button className='btn'>Send</button>
+                                <button className='btn not-allowed'>Send</button>
                             </form>
                         </div>
                         <div className='contact-description--wrapper'>
