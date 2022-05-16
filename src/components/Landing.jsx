@@ -70,11 +70,8 @@ const Landing = () => {
                     search
                 </span>
             </div>
-            <a href="#top-rated-movies">
-                <span 
-                    className="material-symbols-outlined go-down--icon">
-                    expand_more
-                </span>
+            <a href="#top-rated-movies" className='go-down--icon'>
+                &#8964;
             </a>
         </section>
     )
