@@ -4,7 +4,6 @@ import { useLocation } from 'react-router-dom';
 import Moviecard from './MovieCard';
 import Noresults from './NoResults';
 import SkeletonMovieCard from './SkeletonMovieCard';
-const API_KEY = "049038a1b7b5164539618773284e61c8";
 
 const SearchResults = () => {
     const location = useLocation();
