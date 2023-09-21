@@ -1,5 +1,7 @@
 # MovieSharks - Movie searching platform
 
+link - https://movie-sharks.netlify.app/
+
 Used languages and technologies
   - React
   - CSS
